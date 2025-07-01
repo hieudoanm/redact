@@ -37,13 +37,21 @@ A simple, interactive **PDF redaction tool** built with React, Fabric.js, and PD
 
 ## 🛠️ Tech Stack
 
-- **React** — UI Framework
-- **Next.js** — App framework with file-based routing
 - **TypeScript** — Type-safe development
-- **Fabric.js** — Interactive canvas for redactions
-- **PDF-lib** — Modify PDF pages and save new versions
-- **react-pdf** — Render PDFs in the browser
-- **file-saver** — Download redacted files
+- Framework
+  - **React** — UI Framework
+  - **Next.js** — App framework with file-based routing
+- PDF Related
+  - **Fabric.js** — Interactive canvas for redactions
+  - **file-saver** — Download redacted files
+  - **PDF-lib** — Modify PDF pages and save new versions
+  - **react-pdf** — Render PDFs in the browser
+
+```bash
+pnpm add --save-exact react react-dom next
+pnpm add --save-exact fabric file-saver pdf-lib pdfjs-dist react-pdf
+pnpm add --save-exact --save-dev @types/react @types/node typescript
+```
 
 ---
 
@@ -65,11 +73,9 @@ cp node_modules/pdfjs-dist/build/pdf.worker.min.mjs public/workers/pdf.worker.mi
 
 ## 🧑‍💻 Usage
 
-Upload a .pdf file
-
-Draw black boxes over the parts you want to redact
-
-Click Export to download a redacted version
+1. Upload a .pdf file
+2. Draw black boxes over the parts you want to redact
+3. Click Export to download a redacted version
 
 ## 📄 License
 
