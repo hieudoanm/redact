@@ -2,6 +2,8 @@
 
 A simple, interactive **PDF redaction tool** built with React, Fabric.js, and PDF-lib. Click, draw, redact — all in your browser.
 
+![social-preview](./images/social-preview.jpg)
+
 ---
 
 ## 📚 Table of Contents
