@@ -19,8 +19,12 @@
   "author": "hieudoanm <hieumdoan@gmail.com> (https://hieudoanm.github.io)",
   "scripts": {
     "format": "prettier --cache --write .",
+    "predev": "kill-port 3000",
     "dev": "next dev --turbopack",
+    "prebuild": "rimraf .next docs",
     "build": "next build",
+    "postbuild": "touch docs/.nojekyll",
+    "prestart": "kill-port 3000",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky || true"
