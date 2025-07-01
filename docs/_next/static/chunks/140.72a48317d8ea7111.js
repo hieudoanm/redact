@@ -12,7 +12,7 @@
         o = l(827),
         c = l(9423),
         d = l(9611);
-      o.EA.workerSrc = '/workers/pdf.worker.min.js';
+      o.EA.workerSrc = ''.concat('/redact', '/workers/pdf.worker.min.js');
       let u = () => {
         let [{ file: e = null, numberOfPages: t = 0, scale: l = 1.5 }, o] = (0, i.useState)({
             file: null,

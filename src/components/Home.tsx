@@ -4,7 +4,10 @@ import { PDFDocument, rgb } from 'pdf-lib';
 import { FC, useRef, useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 
-pdfjs.GlobalWorkerOptions.workerSrc = '/workers/pdf.worker.min.js';
+const NODE_ENV: 'development' | 'production' | 'test' = process.env.NODE_ENV ?? 'development';
+const BASE_PATH: string = NODE_ENV === 'development' ? '' : '/redact';
+
+pdfjs.GlobalWorkerOptions.workerSrc = `${BASE_PATH}/workers/pdf.worker.min.js`;
 
 type RedactionBox = { x: number; y: number; width: number; height: number };
 // type aliases
