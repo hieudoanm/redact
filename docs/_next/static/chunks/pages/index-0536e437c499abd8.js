@@ -6,8 +6,8 @@
       (l.r(t), l.d(t, { default: () => n }));
       var r = l(5640),
         a = l(3770);
-      let u = l.n(a)()(() => Promise.all([l.e(94), l.e(586), l.e(708), l.e(140)]).then(l.bind(l, 2140)), {
-          loadableGenerated: { webpack: () => [2140] },
+      let u = l.n(a)()(() => Promise.all([l.e(94), l.e(586), l.e(362), l.e(497)]).then(l.bind(l, 2497)), {
+          loadableGenerated: { webpack: () => [2497] },
           ssr: !1,
         }),
         n = () => (0, r.jsx)(u, {});

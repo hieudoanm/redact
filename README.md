@@ -21,7 +21,7 @@ A simple, interactive **PDF redaction tool** built with React, Fabric.js, and PD
 
 ## 🎬 Demo
 
-![demo](./images/demo.gif)
+![demo](./images/demo.png)
 
 ---
 

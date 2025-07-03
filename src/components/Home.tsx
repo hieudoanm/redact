@@ -3,6 +3,7 @@ import { saveAs } from 'file-saver';
 import { PDFDocument, rgb } from 'pdf-lib';
 import { FC, useRef, useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
+import { Navbar } from './Navbar';
 
 const NODE_ENV: 'development' | 'production' | 'test' = process.env.NODE_ENV ?? 'development';
 const BASE_PATH: string = NODE_ENV === 'development' ? '' : '/redact';
@@ -201,57 +202,77 @@ const Home: FC = () => {
   };
 
   return (
-    <div className="container mx-auto flex flex-col gap-y-8 p-8">
-      <div className="flex flex-col gap-y-8">
-        <h1 className="text-center text-3xl md:text-4xl">📄 PDF Redactor</h1>
-        <label className="block cursor-pointer rounded-md border-2 border-dashed border-gray-400 p-8 text-center transition hover:border-blue-500">
-          <span className="text-gray-600">📁 Click to upload PDF</span>
-          <input type="file" accept="application/pdf" onChange={handleFile} className="hidden" />
-        </label>
-      </div>
-      {file && (
-        <div className="flex flex-col gap-y-8">
-          <div className="grid grid-cols-3 gap-8">
-            <button
-              type="button"
-              onClick={handleExport}
-              className="w-full cursor-pointer rounded-full bg-neutral-900 px-4 py-2 text-neutral-100">
-              Export Redacted PDF
-            </button>
-            <button
-              type="button"
-              onClick={handleUndo}
-              className="w-full cursor-pointer rounded-full bg-neutral-900 px-4 py-2 text-neutral-100">
-              Undo Last Redaction
-            </button>
-            <button
-              type="button"
-              onClick={handleRedo}
-              className="w-full cursor-pointer rounded-full bg-neutral-900 px-4 py-2 text-neutral-100">
-              Redo Last Redaction
-            </button>
-          </div>
-          <div className="w-full overflow-hidden rounded-xl border border-neutral-200 shadow-2xl">
-            <div className="w-full overflow-auto">
-              <Document
-                file={file}
-                onLoadSuccess={({ numPages }) => setState((previous) => ({ ...previous, numberOfPages: numPages }))}>
-                {Array.from({ length: numberOfPages }, (_, i) => (
-                  <div key={i} className="relative">
-                    <Page pageNumber={i + 1} scale={scale} renderAnnotationLayer={false} renderTextLayer={false} />
-                    <canvas
-                      id={`canvas-${i}`}
-                      ref={(el) => initFabric(el, i)}
-                      className="pointer-events-auto absolute top-0 left-0 z-10 h-full w-full"
-                    />
-                  </div>
-                ))}
-              </Document>
-            </div>
+    <>
+      {/* Navbar */}
+      <Navbar />
+      {/* Divider */}
+      <div className="w-full border-t border-gray-200" />
+      {/* Hero Section */}
+      <section className="w-full py-20">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+          <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl">Redact PDFs with Precision</h2>
+          <p className="mt-6 text-lg text-gray-600">
+            Select text areas to black out and export secure, sanitized PDF files—right from your browser.
+          </p>
+          <div className="mt-8 flex justify-center gap-4">
+            <label className="inline-block cursor-pointer rounded-full bg-black px-6 py-3 text-white transition hover:bg-gray-800">
+              <span>Upload PDF</span>
+              <input type="file" accept="application/pdf" onChange={handleFile} className="hidden" />
+            </label>
+            {file && (
+              <button
+                onClick={handleExport}
+                className="rounded-full border border-gray-900 px-6 py-3 text-gray-900 transition hover:bg-gray-900 hover:text-white">
+                Export Redacted PDF
+              </button>
+            )}
           </div>
         </div>
-      )}
-    </div>
+      </section>
+      {/* Divider */}
+      <div className="w-full border-t border-gray-200" />
+      {/* Main */}
+      <div className="container mx-auto flex flex-col gap-y-8 p-8">
+        {file && (
+          <div className="flex flex-col gap-y-8">
+            <div className="grid grid-cols-2 gap-8">
+              <button
+                type="button"
+                onClick={handleUndo}
+                className="w-full cursor-pointer rounded-full bg-neutral-900 px-4 py-2 text-neutral-100">
+                Undo Last Redaction
+              </button>
+              <button
+                type="button"
+                onClick={handleRedo}
+                className="w-full cursor-pointer rounded-full bg-neutral-900 px-4 py-2 text-neutral-100">
+                Redo Last Redaction
+              </button>
+            </div>
+            <div className="w-full overflow-hidden rounded-xl border border-neutral-200 shadow-2xl">
+              <div className="w-full overflow-auto">
+                <Document
+                  file={file}
+                  onLoadSuccess={({ numPages }) => setState((previous) => ({ ...previous, numberOfPages: numPages }))}>
+                  {Array.from({ length: numberOfPages }, (_, i) => (
+                    <div key={i} className="relative">
+                      <Page pageNumber={i + 1} scale={scale} renderAnnotationLayer={false} renderTextLayer={false} />
+                      <canvas
+                        id={`canvas-${i}`}
+                        ref={(el) => initFabric(el, i)}
+                        width={scale * 794}
+                        height={scale * 1123}
+                        className="pointer-events-auto absolute top-0 left-0 z-10 h-full w-full"
+                      />
+                    </div>
+                  ))}
+                </Document>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 
