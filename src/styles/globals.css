@@ -6,6 +6,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.react-pdf__Document {
+  width: fit-content;
+  margin: 0 auto;
+}
+
 .canvas-container {
   position: absolute !important;
   top: 0;

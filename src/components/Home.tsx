@@ -10,27 +10,34 @@ const BASE_PATH: string = NODE_ENV === 'development' ? '' : '/redact';
 pdfjs.GlobalWorkerOptions.workerSrc = `${BASE_PATH}/workers/pdf.worker.min.js`;
 
 type RedactionBox = { x: number; y: number; width: number; height: number };
-// type aliases
 type FabricCanvas = fabric.Canvas;
 
 const Home: FC = () => {
-  const [{ file = null, numberOfPages = 0, scale = 1.5 }, setState] = useState<{
+  const [{ redactions = {}, redoStack = {}, file = null, numberOfPages = 0, scale = 1.5 }, setState] = useState<{
+    redactions: Record<number, RedactionBox[]>;
+    redoStack: Record<number, RedactionBox[]>;
     file: File | null;
     numberOfPages: number;
     scale: number;
   }>({
+    redactions: {},
+    redoStack: {},
     file: null,
     numberOfPages: 0,
     scale: 1.5,
   });
-  const [redactions, setRedactions] = useState<Record<number, RedactionBox[]>>({});
+
   const canvasRefs = useRef<Record<number, FabricCanvas>>({});
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
     if (f) {
-      setState((previous) => ({ ...previous, file: f }));
-      setRedactions({});
+      setState((previous) => ({
+        ...previous,
+        file: f,
+        redactions: {},
+        redoStack: {},
+      }));
     }
   };
 
@@ -54,7 +61,7 @@ const Home: FC = () => {
     });
 
     const modifiedBytes: Uint8Array<ArrayBufferLike> = await pdfDoc.save();
-    const arrayBuffer = modifiedBytes.slice().buffer; // slice ensures it's a true ArrayBuffer
+    const arrayBuffer = modifiedBytes.slice().buffer;
     saveAs(new Blob([arrayBuffer], { type: 'application/pdf' }), 'redacted.pdf');
   };
 
@@ -107,25 +114,29 @@ const Home: FC = () => {
         width: rect.width / scale,
         height: rect.height / scale,
       };
-      setRedactions((prev) => ({
+      setState((prev) => ({
         ...prev,
-        [pageIndex]: [...(prev[pageIndex] || []), box],
+        redactions: {
+          ...prev.redactions,
+          [pageIndex]: [...(prev.redactions[pageIndex] ?? []), box],
+        },
+        redoStack: {
+          ...prev.redoStack,
+          [pageIndex]: [],
+        },
       }));
     });
   };
 
   const handleUndo = () => {
-    // Find the last page with redactions
     const pagesWithRedactions = Object.entries(redactions).filter(([, boxes]) => boxes.length > 0);
     if (pagesWithRedactions.length === 0) return;
 
-    // Get the latest edited page
     const [lastPageStr] = pagesWithRedactions[pagesWithRedactions.length - 1];
     const pageIndex = Number(lastPageStr);
     const canvas = canvasRefs.current[pageIndex];
     if (!canvas) return;
 
-    // Remove last fabric.Rect from canvas
     const objects = canvas.getObjects('rect');
     if (objects.length > 0) {
       const lastRect = objects[objects.length - 1];
@@ -133,12 +144,60 @@ const Home: FC = () => {
       canvas.renderAll();
     }
 
-    // Update redactions state
-    setRedactions((prev) => {
-      const updated = [...(prev[pageIndex] || [])];
-      updated.pop();
-      return { ...prev, [pageIndex]: updated };
+    setState((prev) => {
+      const redactionsOnPage = [...(prev.redactions[pageIndex] ?? [])];
+      const popped = redactionsOnPage.pop();
+      if (!popped) return prev;
+
+      return {
+        ...prev,
+        redactions: {
+          ...prev.redactions,
+          [pageIndex]: redactionsOnPage,
+        },
+        redoStack: {
+          ...prev.redoStack,
+          [pageIndex]: [...(prev.redoStack[pageIndex] ?? []), popped],
+        },
+      };
     });
+  };
+
+  const handleRedo = () => {
+    const pagesWithRedo = Object.entries(redoStack).filter(([, boxes]) => boxes.length > 0);
+    if (pagesWithRedo.length === 0) return;
+
+    const [lastPageStr] = pagesWithRedo[pagesWithRedo.length - 1];
+    const pageIndex = Number(lastPageStr);
+    const canvas = canvasRefs.current[pageIndex];
+    if (!canvas) return;
+
+    const redoBoxes = [...(redoStack[pageIndex] ?? [])];
+    const redoBox = redoBoxes.pop();
+    if (!redoBox) return;
+
+    const rect = new fabric.Rect({
+      left: redoBox.x * scale,
+      top: redoBox.y * scale,
+      width: redoBox.width * scale,
+      height: redoBox.height * scale,
+      fill: 'black',
+      selectable: false,
+    });
+    canvas.add(rect);
+    canvas.renderAll();
+
+    setState((prev) => ({
+      ...prev,
+      redactions: {
+        ...prev.redactions,
+        [pageIndex]: [...(prev.redactions[pageIndex] ?? []), redoBox],
+      },
+      redoStack: {
+        ...prev.redoStack,
+        [pageIndex]: redoBoxes,
+      },
+    }));
   };
 
   return (
@@ -152,40 +211,38 @@ const Home: FC = () => {
       </div>
       {file && (
         <div className="flex flex-col gap-y-8">
-          <div className="grid grid-cols-2 gap-8">
-            <div className="col-span-1">
-              <button
-                type="button"
-                onClick={handleExport}
-                className="w-full cursor-pointer rounded-full bg-neutral-900 px-4 py-2 text-neutral-100">
-                Export Redacted PDF
-              </button>
-            </div>
-            <div className="col-span-1">
-              <button
-                type="button"
-                onClick={handleUndo}
-                className="w-full cursor-pointer rounded-full bg-neutral-900 px-4 py-2 text-neutral-100">
-                Undo Last Redaction
-              </button>
-            </div>
+          <div className="grid grid-cols-3 gap-8">
+            <button
+              type="button"
+              onClick={handleExport}
+              className="w-full cursor-pointer rounded-full bg-neutral-900 px-4 py-2 text-neutral-100">
+              Export Redacted PDF
+            </button>
+            <button
+              type="button"
+              onClick={handleUndo}
+              className="w-full cursor-pointer rounded-full bg-neutral-900 px-4 py-2 text-neutral-100">
+              Undo Last Redaction
+            </button>
+            <button
+              type="button"
+              onClick={handleRedo}
+              className="w-full cursor-pointer rounded-full bg-neutral-900 px-4 py-2 text-neutral-100">
+              Redo Last Redaction
+            </button>
           </div>
-          <div className="w-full overflow-hidden rounded-xl border border-neutral-200">
+          <div className="w-full overflow-hidden rounded-xl border border-neutral-200 shadow-2xl">
             <div className="w-full overflow-auto">
               <Document
                 file={file}
-                onLoadSuccess={({ numPages: numberOfPages }) =>
-                  setState((previous) => ({ ...previous, numberOfPages }))
-                }>
+                onLoadSuccess={({ numPages }) => setState((previous) => ({ ...previous, numberOfPages: numPages }))}>
                 {Array.from({ length: numberOfPages }, (_, i) => (
                   <div key={i} className="relative">
                     <Page pageNumber={i + 1} scale={scale} renderAnnotationLayer={false} renderTextLayer={false} />
                     <canvas
                       id={`canvas-${i}`}
                       ref={(el) => initFabric(el, i)}
-                      width={612 * scale}
-                      height={792 * scale}
-                      className="pointer-events-auto absolute top-0 left-0 z-10"
+                      className="pointer-events-auto absolute top-0 left-0 z-10 h-full w-full"
                     />
                   </div>
                 ))}
