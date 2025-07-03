@@ -3,7 +3,9 @@ import { saveAs } from 'file-saver';
 import { PDFDocument, rgb } from 'pdf-lib';
 import { FC, useRef, useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
+import { Features } from './Features';
 import { Navbar } from './Navbar';
+import { Footer } from './Footer';
 
 const NODE_ENV: 'development' | 'production' | 'test' = process.env.NODE_ENV ?? 'development';
 const BASE_PATH: string = NODE_ENV === 'development' ? '' : '/redact';
@@ -231,9 +233,30 @@ const Home: FC = () => {
       </section>
       {/* Divider */}
       <div className="w-full border-t border-gray-200" />
+      {!file && (
+        <>
+          {/* Features */}
+          <Features />
+          {/* Divider */}
+          <div className="w-full border-t border-gray-200" />
+          {/* Call to Action */}
+          <section className="w-full py-16">
+            <div className="mx-auto max-w-3xl px-6 text-center">
+              <h3 className="text-2xl font-bold text-gray-800 sm:text-3xl">Ready to protect sensitive information?</h3>
+              <p className="mt-4 text-gray-600">
+                Upload your PDF and start redacting directly in your browser — no sign-up, no server, 100% local.
+              </p>
+              <label className="mt-6 inline-block cursor-pointer rounded-full bg-black px-6 py-3 text-white transition hover:bg-gray-800">
+                <span>Upload PDF</span>
+                <input type="file" accept="application/pdf" onChange={handleFile} className="hidden" />
+              </label>
+            </div>
+          </section>
+        </>
+      )}
       {/* Main */}
-      <div className="container mx-auto flex flex-col gap-y-8 p-8">
-        {file && (
+      {file && (
+        <div className="container mx-auto flex flex-col gap-y-8 p-8">
           <div className="flex flex-col gap-y-8">
             <div className="grid grid-cols-2 gap-8">
               <button
@@ -270,8 +293,10 @@ const Home: FC = () => {
               </div>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
+      {/* Footer */}
+      <Footer />
     </>
   );
 };

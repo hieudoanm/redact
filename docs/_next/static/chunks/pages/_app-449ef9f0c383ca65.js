@@ -3,22 +3,23 @@
   {
     381: (a, e, s) => {
       'use strict';
-      (s.r(e), s.d(e, { default: () => o }));
-      var l = s(5640);
+      (s.r(e), s.d(e, { default: () => m }));
+      var l = s(5640),
+        t = s(8034);
       s(2936);
-      var t = s(6822),
-        n = s.n(t),
+      var n = s(6822),
+        r = s.n(n),
         _ = s(2922),
-        r = s.n(_),
-        c = s(5299),
-        i = s.n(c);
-      let o = (a) => {
+        c = s.n(_),
+        i = s(5299),
+        o = s.n(i);
+      let m = (a) => {
         let { Component: e, pageProps: s } = a;
         return (0, l.jsxs)(l.Fragment, {
           children: [
-            (0, l.jsx)(i(), { children: (0, l.jsx)('title', { children: 'Re(d)act' }) }),
+            (0, l.jsx)(o(), { children: (0, l.jsx)('title', { children: t.C }) }),
             (0, l.jsx)('div', {
-              className: ''.concat(n().className, ' ').concat(r().className),
+              className: ''.concat(r().className, ' ').concat(c().className),
               children: (0, l.jsx)(e, { ...s }),
             }),
           ],
@@ -50,6 +51,11 @@
         className: '__className_f05857',
         variable: '__variable_f05857',
       };
+    },
+    8034: (a, e, s) => {
+      'use strict';
+      s.d(e, { C: () => l });
+      let l = 're(d)act';
     },
   },
   (a) => {
