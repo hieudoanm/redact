@@ -3,27 +3,24 @@
   [98],
   {
     7098: (e, t, r) => {
-      (r.r(t), r.d(t, { default: () => f }));
+      (r.r(t), r.d(t, { default: () => b }));
       var l = r(5640),
         s = r(9964),
         a = r(1536),
         n = r(6017),
         i = r(148),
         o = r(827),
-        c = r(9423),
-        d = r(9611);
-      let x = () =>
+        d = r(9423),
+        c = r(9611);
+      let u = () =>
         (0, l.jsx)('section', {
-          className: 'bg-white py-16',
+          className: 'py-16',
           children: (0, l.jsxs)('div', {
             className: 'mx-auto max-w-6xl px-6 text-center',
             children: [
-              (0, l.jsx)('h3', {
-                className: 'text-3xl font-semibold text-gray-900 sm:text-4xl',
-                children: 'Why Use Our Redactor?',
-              }),
+              (0, l.jsx)('h3', { className: 'text-3xl font-semibold sm:text-4xl', children: 'Why Use Our Redactor?' }),
               (0, l.jsx)('p', {
-                className: 'mx-auto mt-4 max-w-2xl text-gray-600',
+                className: 'mx-auto mt-4 max-w-2xl text-neutral-500',
                 children:
                   'Easily blackout sensitive information from your PDF documents. No uploads. No server. Just privacy.',
               }),
@@ -31,40 +28,34 @@
                 className: 'mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3',
                 children: [
                   (0, l.jsxs)('div', {
-                    className: 'rounded-xl border border-gray-200 p-6 shadow-sm',
+                    className: 'rounded-xl border border-neutral-800 p-6 shadow-sm',
                     children: [
-                      (0, l.jsx)('h4', {
-                        className: 'text-lg font-semibold text-gray-800',
-                        children: '\uD83D\uDEE1️ Privacy-First',
-                      }),
+                      (0, l.jsx)('h4', { className: 'text-lg font-semibold', children: '\uD83D\uDEE1️ Privacy-First' }),
                       (0, l.jsx)('p', {
-                        className: 'mt-2 text-sm text-gray-600',
+                        className: 'mt-2 text-sm text-neutral-500',
                         children: 'Everything runs in your browser. Your files never leave your device.',
                       }),
                     ],
                   }),
                   (0, l.jsxs)('div', {
-                    className: 'rounded-xl border border-gray-200 p-6 shadow-sm',
+                    className: 'rounded-xl border border-neutral-800 p-6 shadow-sm',
                     children: [
-                      (0, l.jsx)('h4', {
-                        className: 'text-lg font-semibold text-gray-800',
-                        children: '\uD83D\uDCE6 Easy Export',
-                      }),
+                      (0, l.jsx)('h4', { className: 'text-lg font-semibold', children: '\uD83D\uDCE6 Easy Export' }),
                       (0, l.jsx)('p', {
-                        className: 'mt-2 text-sm text-gray-600',
+                        className: 'mt-2 text-sm text-neutral-500',
                         children: 'One click to save your redacted PDF. No sign-up or install required.',
                       }),
                     ],
                   }),
                   (0, l.jsxs)('div', {
-                    className: 'rounded-xl border border-gray-200 p-6 shadow-sm',
+                    className: 'rounded-xl border border-neutral-800 p-6 shadow-sm',
                     children: [
                       (0, l.jsx)('h4', {
-                        className: 'text-lg font-semibold text-gray-800',
+                        className: 'text-lg font-semibold',
                         children: '\uD83C\uDFAF Precise Control',
                       }),
                       (0, l.jsx)('p', {
-                        className: 'mt-2 text-sm text-gray-600',
+                        className: 'mt-2 text-sm text-neutral-500',
                         children: 'Draw exact black boxes where you want them with pixel precision.',
                       }),
                     ],
@@ -74,18 +65,18 @@
             ],
           }),
         });
-      var u = r(8034),
+      var x = r(8034),
         h = r(7057),
         m = r.n(h);
-      let g = () =>
+      let p = () =>
           (0, l.jsx)('header', {
-            className: 'w-full bg-white',
+            className: 'w-full',
             children: (0, l.jsxs)('div', {
               className: 'mx-auto flex max-w-7xl items-center justify-between px-6 py-4',
               children: [
-                (0, l.jsx)('h1', { className: 'text-xl font-bold text-gray-900', children: u.C }),
+                (0, l.jsx)('h1', { className: 'text-xl font-bold', children: x.C }),
                 (0, l.jsx)('nav', {
-                  className: 'space-x-4 text-sm font-medium text-gray-600',
+                  className: 'space-x-4 text-sm font-medium text-neutral-500',
                   children: (0, l.jsx)(m(), {
                     href: 'https://github.com/hieudoanm/redact',
                     target: '_blank',
@@ -96,14 +87,14 @@
               ],
             }),
           }),
-        p = () =>
+        f = () =>
           (0, l.jsx)('footer', {
-            className: 'w-full border-t border-gray-200 bg-white py-8',
+            className: 'w-full border-t border-neutral-800 py-8',
             children: (0, l.jsxs)('div', {
               className:
-                'mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 text-sm text-gray-500 sm:flex-row',
+                'mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 text-sm text-neutral-500 sm:flex-row',
               children: [
-                (0, l.jsxs)('p', { children: ['\xa9 ', new Date().getFullYear(), ' ', u.C, '. All rights reserved.'] }),
+                (0, l.jsxs)('p', { children: ['\xa9 ', new Date().getFullYear(), ' ', x.C, '. All rights reserved.'] }),
                 (0, l.jsx)('div', {
                   className: 'space-x-4',
                   children: (0, l.jsx)(m(), {
@@ -118,16 +109,16 @@
             }),
           });
       o.EA.workerSrc = ''.concat('/redact', '/workers/pdf.worker.min.js');
-      let f = () => {
-        let [{ redactions: e = {}, redoStack: t = {}, file: r = null, numberOfPages: o = 0, scale: u = 1.5 }, h] = (0,
+      let b = () => {
+        let [{ redactions: e = {}, redoStack: t = {}, file: r = null, numberOfPages: o = 0, scale: x = 1.5 }, h] = (0,
           i.useState)({ redactions: {}, redoStack: {}, file: null, numberOfPages: 0, scale: 1.5 }),
           m = (0, i.useRef)({}),
-          f = (e) => {
+          b = (e) => {
             var t;
             let r = null == (t = e.target.files) ? void 0 : t[0];
             r && h((e) => ({ ...e, file: r, redactions: {}, redoStack: {} }));
           },
-          b = async () => {
+          j = async () => {
             if (!r) return;
             let t = await r.arrayBuffer(),
               l = await n.PDFDocument.load(t);
@@ -143,7 +134,7 @@
             let s = (await l.save()).slice().buffer;
             (0, a.saveAs)(new Blob([s], { type: 'application/pdf' }), 'redacted.pdf');
           },
-          y = (e, t) => {
+          g = (e, t) => {
             let r;
             if (!e || m.current[t]) return;
             let l = new s.Hl(e, { selection: !1, renderOnAddRemove: !0 });
@@ -166,7 +157,7 @@
               }),
               l.on('mouse:up', () => {
                 a = !1;
-                let e = { x: r.left / u, y: r.top / u, width: r.width / u, height: r.height / u };
+                let e = { x: r.left / x, y: r.top / x, width: r.width / x, height: r.height / x };
                 h((r) => {
                   var l;
                   return {
@@ -179,19 +170,19 @@
           };
         return (0, l.jsxs)(l.Fragment, {
           children: [
-            (0, l.jsx)(g, {}),
-            (0, l.jsx)('div', { className: 'w-full border-t border-gray-200' }),
+            (0, l.jsx)(p, {}),
+            (0, l.jsx)('div', { className: 'w-full border-t border-neutral-800' }),
             (0, l.jsx)('section', {
               className: 'w-full py-20',
               children: (0, l.jsxs)('div', {
                 className: 'mx-auto max-w-3xl px-4 text-center sm:px-6',
                 children: [
                   (0, l.jsx)('h2', {
-                    className: 'text-4xl font-extrabold text-gray-900 sm:text-5xl',
+                    className: 'text-4xl font-extrabold sm:text-5xl',
                     children: 'Redact PDFs with Precision',
                   }),
                   (0, l.jsx)('p', {
-                    className: 'mt-6 text-lg text-gray-600',
+                    className: 'mt-6 text-lg text-neutral-500',
                     children:
                       'Select text areas to black out and export secure, sanitized PDF files—right from your browser.',
                   }),
@@ -199,23 +190,21 @@
                     className: 'mt-8 flex justify-center gap-4',
                     children: [
                       (0, l.jsxs)('label', {
-                        className:
-                          'inline-block cursor-pointer rounded-full bg-black px-6 py-3 text-white transition hover:bg-gray-800',
+                        className: 'inline-block cursor-pointer rounded-full border border-neutral-800 px-6 py-3',
                         children: [
                           (0, l.jsx)('span', { children: 'Upload PDF' }),
                           (0, l.jsx)('input', {
                             type: 'file',
                             accept: 'application/pdf',
-                            onChange: f,
+                            onChange: b,
                             className: 'hidden',
                           }),
                         ],
                       }),
                       r &&
                         (0, l.jsx)('button', {
-                          onClick: b,
-                          className:
-                            'rounded-full border border-gray-900 px-6 py-3 text-gray-900 transition hover:bg-gray-900 hover:text-white',
+                          onClick: j,
+                          className: 'rounded-full border border-neutral-800 px-6 py-3 transition hover:bg-neutral-900',
                           children: 'Export Redacted PDF',
                         }),
                     ],
@@ -223,35 +212,35 @@
                 ],
               }),
             }),
-            (0, l.jsx)('div', { className: 'w-full border-t border-gray-200' }),
+            (0, l.jsx)('div', { className: 'w-full border-t border-neutral-800' }),
             !r &&
               (0, l.jsxs)(l.Fragment, {
                 children: [
-                  (0, l.jsx)(x, {}),
-                  (0, l.jsx)('div', { className: 'w-full border-t border-gray-200' }),
+                  (0, l.jsx)(u, {}),
+                  (0, l.jsx)('div', { className: 'w-full border-t border-neutral-800' }),
                   (0, l.jsx)('section', {
                     className: 'w-full py-16',
                     children: (0, l.jsxs)('div', {
                       className: 'mx-auto max-w-3xl px-6 text-center',
                       children: [
                         (0, l.jsx)('h3', {
-                          className: 'text-2xl font-bold text-gray-800 sm:text-3xl',
+                          className: 'text-2xl font-bold sm:text-3xl',
                           children: 'Ready to protect sensitive information?',
                         }),
                         (0, l.jsx)('p', {
-                          className: 'mt-4 text-gray-600',
+                          className: 'mt-4 text-neutral-500',
                           children:
                             'Upload your PDF and start redacting directly in your browser — no sign-up, no server, 100% local.',
                         }),
                         (0, l.jsxs)('label', {
                           className:
-                            'mt-6 inline-block cursor-pointer rounded-full bg-black px-6 py-3 text-white transition hover:bg-gray-800',
+                            'mt-6 inline-block cursor-pointer rounded-full border border-neutral-800 px-6 py-3 text-white',
                           children: [
                             (0, l.jsx)('span', { children: 'Upload PDF' }),
                             (0, l.jsx)('input', {
                               type: 'file',
                               accept: 'application/pdf',
-                              onChange: f,
+                              onChange: b,
                               className: 'hidden',
                             }),
                           ],
@@ -300,7 +289,7 @@
                                 : e;
                             });
                           },
-                          className: 'w-full cursor-pointer rounded-full bg-neutral-900 px-4 py-2 text-neutral-100',
+                          className: 'w-full cursor-pointer rounded-full border border-neutral-800 px-4 py-2',
                           children: 'Undo Last Redaction',
                         }),
                         (0, l.jsx)('button', {
@@ -319,15 +308,15 @@
                             let i = [...(null != (e = t[a]) ? e : [])],
                               o = i.pop();
                             if (!o) return;
-                            let c = new s.rw({
-                              left: o.x * u,
-                              top: o.y * u,
-                              width: o.width * u,
-                              height: o.height * u,
+                            let d = new s.rw({
+                              left: o.x * x,
+                              top: o.y * x,
+                              width: o.width * x,
+                              height: o.height * x,
                               fill: 'black',
                               selectable: !1,
                             });
-                            (n.add(c),
+                            (n.add(d),
                               n.renderAll(),
                               h((e) => {
                                 var t;
@@ -341,16 +330,16 @@
                                 };
                               }));
                           },
-                          className: 'w-full cursor-pointer rounded-full bg-neutral-900 px-4 py-2 text-neutral-100',
+                          className: 'w-full cursor-pointer rounded-full border border-neutral-800 px-4 py-2',
                           children: 'Redo Last Redaction',
                         }),
                       ],
                     }),
                     (0, l.jsx)('div', {
-                      className: 'w-full overflow-hidden rounded-xl border border-neutral-200 shadow-2xl',
+                      className: 'w-full overflow-hidden rounded-xl border border-neutral-800 shadow-2xl',
                       children: (0, l.jsx)('div', {
                         className: 'w-full overflow-auto',
-                        children: (0, l.jsx)(c.A, {
+                        children: (0, l.jsx)(d.A, {
                           file: r,
                           onLoadSuccess: (e) => {
                             let { numPages: t } = e;
@@ -362,17 +351,17 @@
                               {
                                 className: 'relative',
                                 children: [
-                                  (0, l.jsx)(d.A, {
+                                  (0, l.jsx)(c.A, {
                                     pageNumber: t + 1,
-                                    scale: u,
+                                    scale: x,
                                     renderAnnotationLayer: !1,
                                     renderTextLayer: !1,
                                   }),
                                   (0, l.jsx)('canvas', {
                                     id: 'canvas-'.concat(t),
-                                    ref: (e) => y(e, t),
-                                    width: 794 * u,
-                                    height: 1123 * u,
+                                    ref: (e) => g(e, t),
+                                    width: 794 * x,
+                                    height: 1123 * x,
                                     className: 'pointer-events-auto absolute top-0 left-0 z-10 h-full w-full',
                                   }),
                                 ],
@@ -386,7 +375,7 @@
                   ],
                 }),
               }),
-            (0, l.jsx)(p, {}),
+            (0, l.jsx)(f, {}),
           ],
         });
       };

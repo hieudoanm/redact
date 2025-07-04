@@ -3,24 +3,27 @@
   {
     381: (a, e, s) => {
       'use strict';
-      (s.r(e), s.d(e, { default: () => m }));
+      (s.r(e), s.d(e, { default: () => d }));
       var l = s(5640),
         t = s(8034);
       s(2936);
       var n = s(6822),
         r = s.n(n),
-        _ = s(2922),
-        c = s.n(_),
+        c = s(2922),
+        _ = s.n(c),
         i = s(5299),
         o = s.n(i);
-      let m = (a) => {
+      let d = (a) => {
         let { Component: e, pageProps: s } = a;
         return (0, l.jsxs)(l.Fragment, {
           children: [
             (0, l.jsx)(o(), { children: (0, l.jsx)('title', { children: t.C }) }),
             (0, l.jsx)('div', {
-              className: ''.concat(r().className, ' ').concat(c().className),
-              children: (0, l.jsx)(e, { ...s }),
+              className: ''.concat(r().className, ' ').concat(_().className),
+              children: (0, l.jsx)('div', {
+                className: 'bg-neutral-900 text-neutral-100',
+                children: (0, l.jsx)(e, { ...s }),
+              }),
             }),
           ],
         });

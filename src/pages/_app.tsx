@@ -22,7 +22,9 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         <title>{APP_NAME}</title>
       </Head>
       <div className={`${geistSans.className} ${geistMono.className}`}>
-        <Component {...pageProps} />
+        <div className="bg-neutral-900 text-neutral-100">
+          <Component {...pageProps} />
+        </div>
       </div>
     </>
   );

@@ -208,23 +208,23 @@ const Home: FC = () => {
       {/* Navbar */}
       <Navbar />
       {/* Divider */}
-      <div className="w-full border-t border-gray-200" />
+      <div className="w-full border-t border-neutral-800" />
       {/* Hero Section */}
       <section className="w-full py-20">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
-          <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl">Redact PDFs with Precision</h2>
-          <p className="mt-6 text-lg text-gray-600">
+          <h2 className="text-4xl font-extrabold sm:text-5xl">Redact PDFs with Precision</h2>
+          <p className="mt-6 text-lg text-neutral-500">
             Select text areas to black out and export secure, sanitized PDF files—right from your browser.
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <label className="inline-block cursor-pointer rounded-full bg-black px-6 py-3 text-white transition hover:bg-gray-800">
+            <label className="inline-block cursor-pointer rounded-full border border-neutral-800 px-6 py-3">
               <span>Upload PDF</span>
               <input type="file" accept="application/pdf" onChange={handleFile} className="hidden" />
             </label>
             {file && (
               <button
                 onClick={handleExport}
-                className="rounded-full border border-gray-900 px-6 py-3 text-gray-900 transition hover:bg-gray-900 hover:text-white">
+                className="rounded-full border border-neutral-800 px-6 py-3 transition hover:bg-neutral-900">
                 Export Redacted PDF
               </button>
             )}
@@ -232,21 +232,21 @@ const Home: FC = () => {
         </div>
       </section>
       {/* Divider */}
-      <div className="w-full border-t border-gray-200" />
+      <div className="w-full border-t border-neutral-800" />
       {!file && (
         <>
           {/* Features */}
           <Features />
           {/* Divider */}
-          <div className="w-full border-t border-gray-200" />
+          <div className="w-full border-t border-neutral-800" />
           {/* Call to Action */}
           <section className="w-full py-16">
             <div className="mx-auto max-w-3xl px-6 text-center">
-              <h3 className="text-2xl font-bold text-gray-800 sm:text-3xl">Ready to protect sensitive information?</h3>
-              <p className="mt-4 text-gray-600">
+              <h3 className="text-2xl font-bold sm:text-3xl">Ready to protect sensitive information?</h3>
+              <p className="mt-4 text-neutral-500">
                 Upload your PDF and start redacting directly in your browser — no sign-up, no server, 100% local.
               </p>
-              <label className="mt-6 inline-block cursor-pointer rounded-full bg-black px-6 py-3 text-white transition hover:bg-gray-800">
+              <label className="mt-6 inline-block cursor-pointer rounded-full border border-neutral-800 px-6 py-3 text-white">
                 <span>Upload PDF</span>
                 <input type="file" accept="application/pdf" onChange={handleFile} className="hidden" />
               </label>
@@ -262,17 +262,17 @@ const Home: FC = () => {
               <button
                 type="button"
                 onClick={handleUndo}
-                className="w-full cursor-pointer rounded-full bg-neutral-900 px-4 py-2 text-neutral-100">
+                className="w-full cursor-pointer rounded-full border border-neutral-800 px-4 py-2">
                 Undo Last Redaction
               </button>
               <button
                 type="button"
                 onClick={handleRedo}
-                className="w-full cursor-pointer rounded-full bg-neutral-900 px-4 py-2 text-neutral-100">
+                className="w-full cursor-pointer rounded-full border border-neutral-800 px-4 py-2">
                 Redo Last Redaction
               </button>
             </div>
-            <div className="w-full overflow-hidden rounded-xl border border-neutral-200 shadow-2xl">
+            <div className="w-full overflow-hidden rounded-xl border border-neutral-800 shadow-2xl">
               <div className="w-full overflow-auto">
                 <Document
                   file={file}
