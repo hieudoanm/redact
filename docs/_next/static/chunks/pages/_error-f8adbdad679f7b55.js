@@ -1,17 +1,17 @@
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
   [731],
   {
-    9913: (_, n, e) => {
+    2318: (_, n, e) => {
       (window.__NEXT_P = window.__NEXT_P || []).push([
         '/_error',
         function () {
-          return e(4902);
+          return e(2890);
         },
       ]);
     },
   },
   (_) => {
     var n = (n) => _((_.s = n));
-    (_.O(0, [636, 593, 792], () => n(9913)), (_N_E = _.O()));
+    (_.O(0, [636, 593, 792], () => n(2318)), (_N_E = _.O()));
   },
 ]);

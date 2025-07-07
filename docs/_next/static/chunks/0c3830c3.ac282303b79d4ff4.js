@@ -4,8 +4,8 @@
   {
     827: (t, e, i) => {
       i.d(e, { D6: () => e$, EA: () => ep, Tm: () => eW, YE: () => ej, dU: () => iS, ng: () => l });
-      var s = i(8043),
-        r = i(9127).Buffer;
+      var s = i(4010),
+        r = i(9354).Buffer;
       let a =
           'object' == typeof s &&
           s + '' == '[object process]' &&
@@ -4499,7 +4499,7 @@
           return s
             .getBuiltinModule('module')
             .createRequire(
-              'file:///Users/hieudoan/git/github.com/hieudoanm/redact/node_modules/.pnpm/pdfjs-dist@5.3.31/node_modules/pdfjs-dist/build/pdf.mjs',
+              'file:///Users/hieudoan/git/github.com/hieudoanm/apps/redact/node_modules/.pnpm/pdfjs-dist@5.3.31/node_modules/pdfjs-dist/build/pdf.mjs',
             )('@napi-rs/canvas')
             .createCanvas(t, e);
         }

@@ -27,6 +27,8 @@
     "prestart": "kill-port 3000",
     "start": "next start",
     "lint": "next lint",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build",
     "prepare": "husky || true"
   },
   "dependencies": {
@@ -42,6 +44,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "3.3.1",
     "@tailwindcss/postcss": "4.1.11",
+    "@tauri-apps/cli": "2.6.2",
     "@types/file-saver": "2.0.7",
     "@types/node": "24.0.10",
     "@types/react": "19.1.8",
