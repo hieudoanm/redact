@@ -48,11 +48,13 @@
     (r.f = {}),
     (r.e = (e) => Promise.all(Object.keys(r.f).reduce((t, o) => (r.f[o](e, t), t), []))),
     (r.u = (e) =>
-      'static/chunks/' +
-      ({ 94: '0c3830c3', 586: '11bb9bbd' }[e] || e) +
-      '.' +
-      { 94: 'ac282303b79d4ff4', 488: '90fd974e92be0547', 547: 'fa76fd756d0e9c72', 586: '18d89e07d612c915' }[e] +
-      '.js'),
+      864 === e
+        ? 'static/chunks/864-4dc0078801029729.js'
+        : 'static/chunks/' +
+          ({ 94: '0c3830c3', 586: '11bb9bbd' }[e] || e) +
+          '.' +
+          { 94: 'ac282303b79d4ff4', 465: 'd36fe4721da102fb', 547: 'fa76fd756d0e9c72', 586: '18d89e07d612c915' }[e] +
+          '.js'),
     (r.miniCssF = (e) => {}),
     (r.g = (function () {
       if ('object' == typeof globalThis) return globalThis;

@@ -52,6 +52,8 @@
       ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
     --color-neutral-100: oklch(97% 0 0);
+    --color-neutral-200: oklch(92.2% 0 0);
+    --color-neutral-400: oklch(70.8% 0 0);
     --color-neutral-500: oklch(55.6% 0 0);
     --color-neutral-800: oklch(26.9% 0 0);
     --color-neutral-900: oklch(20.5% 0 0);
@@ -76,6 +78,8 @@
     --text-4xl--line-height: calc(2.5 / 2.25);
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
+    --text-6xl: 3.75rem;
+    --text-6xl--line-height: 1;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
@@ -423,6 +427,9 @@
   .h-full {
     height: 100%;
   }
+  .min-h-screen {
+    min-height: 100vh;
+  }
   .w-full {
     width: 100%;
   }
@@ -468,6 +475,9 @@
   .gap-4 {
     gap: calc(var(--spacing) * 4);
   }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
+  }
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
@@ -506,6 +516,9 @@
   }
   .border-neutral-800 {
     border-color: var(--color-neutral-800);
+  }
+  .bg-neutral-100 {
+    background-color: var(--color-neutral-100);
   }
   .bg-neutral-900 {
     background-color: var(--color-neutral-900);
@@ -555,6 +568,10 @@
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
   }
+  .text-6xl {
+    font-size: var(--text-6xl);
+    line-height: var(--tw-leading, var(--text-6xl--line-height));
+  }
   .text-lg {
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
@@ -586,8 +603,14 @@
   .text-neutral-100 {
     color: var(--color-neutral-100);
   }
+  .text-neutral-400 {
+    color: var(--color-neutral-400);
+  }
   .text-neutral-500 {
     color: var(--color-neutral-500);
+  }
+  .text-neutral-900 {
+    color: var(--color-neutral-900);
   }
   .text-white {
     color: var(--color-white);
@@ -665,6 +688,9 @@
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   @media (hover: hover) {
+    .hover\:bg-neutral-200:hover {
+      background-color: var(--color-neutral-200);
+    }
     .hover\:bg-neutral-900:hover {
       background-color: var(--color-neutral-900);
     }
